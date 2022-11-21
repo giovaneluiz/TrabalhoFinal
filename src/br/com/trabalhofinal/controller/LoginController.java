@@ -25,11 +25,15 @@ public class LoginController {
 
   @FXML
   protected void login(ActionEvent event) {
-    Login novoLogin = new Login(this.txtEmail.getText(), this.txtSenha.getText());
-    if (novoLogin.logar()) {
-      Main.changeScreen("menu");
+    if (this.txtEmail.getText().isEmpty() || this.txtSenha.getText().isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios!");
     } else {
-      JOptionPane.showMessageDialog(null, "usuário ou senha incorretos");
+      Login novoLogin = new Login(this.txtEmail.getText(), this.txtSenha.getText());
+      if (novoLogin.logar()) {
+        Main.changeScreen("menu");
+      } else {
+        JOptionPane.showMessageDialog(null, "usuário ou senha incorretos");
+      }
     }
   }
 
