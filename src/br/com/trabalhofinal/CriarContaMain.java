@@ -9,19 +9,19 @@ public class CriarContaMain {
     String email = JOptionPane.showInputDialog(null, "Informe seu email");
     String senha = JOptionPane.showInputDialog(null, "Informe seu senha");
     String confirmaSenha = JOptionPane.showInputDialog(null, "Repita a senha");
-    
+
     CadastrarUsuario novoUsuario = new CadastrarUsuario(nome, email, senha);
-    
+
     boolean confereSenha = novoUsuario.verificaSenha(confirmaSenha);
     boolean emailEmUso = novoUsuario.emailEmUso();
-    
-    if(emailEmUso == true){
+
+    if (emailEmUso == true) {
       JOptionPane.showMessageDialog(null, "Email já cadastrado! Efetue o Login!");
-    }else{
-      if(confereSenha == true){
+    } else {
+      if (confereSenha == true) {
         novoUsuario.insereUsuario();
         JOptionPane.showMessageDialog(null, "Usuário Cadastrado!");
-      }else{
+      } else {
         JOptionPane.showMessageDialog(null, "As senhas não conferem!");
       }
     }
