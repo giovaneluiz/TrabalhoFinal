@@ -67,7 +67,7 @@
                   <Image url="@imgs/delete-user.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnLogout" layoutX="552.0" layoutY="24.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+            <Button fx:id="btnLogout" layoutX="570.0" layoutY="24.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
          </children>
     </AnchorPane>
   </children>

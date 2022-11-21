@@ -46,6 +46,7 @@ public class Main extends Application {
       case "menu":
         stage.setTitle("menu");
         stage.setScene(menuScene);
+        break;
     }
   }
 }
