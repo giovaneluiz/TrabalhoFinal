@@ -40,7 +40,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.MenuController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -52,27 +52,22 @@
             <Button alignment="BOTTOM_CENTER" layoutX="34.0" layoutY="87.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Adicionar Amigos" />
             <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="50.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@2.png" />
+                  <Image url="@imgs/add-user.png" />
                </image>
             </ImageView>
             <Button alignment="BOTTOM_CENTER" layoutX="243.0" layoutY="87.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Consultar Amigos" />
             <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="259.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@3.png" />
+                  <Image url="@imgs/search-user.png" />
                </image>
             </ImageView>
             <Button alignment="BOTTOM_CENTER" layoutX="456.0" layoutY="87.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Excluir Amigos" />
             <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="472.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@1.png" />
+                  <Image url="@imgs/delete-user.png" />
                </image>
             </ImageView>
-            <Button layoutX="552.0" layoutY="24.0" mnemonicParsing="false" text="Logout" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="243.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Conecta.png" />
-               </image>
-            </ImageView>
+            <Button fx:id="btnLogout" layoutX="552.0" layoutY="24.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
          </children>
     </AnchorPane>
   </children>

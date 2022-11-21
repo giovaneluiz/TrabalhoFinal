@@ -24,12 +24,17 @@ public class LoginController {
   private PasswordField txtSenha;
 
   @FXML
-  void login(ActionEvent event) {
-
+  protected void login(ActionEvent event) {
+    Login l = new Login(this.txtEmail.getText(), this.txtSenha.getText());
+    if (l.logar()) {
+      Main.changeScreen("menu");
+    } else {
+      JOptionPane.showMessageDialog(null, "usuário ou senha incorretos");
+    }
   }
 
   @FXML
   void criarConta(ActionEvent event) {
-    MainLogin.changeScreen("signup");
+    Main.changeScreen("signup");
   }
 }

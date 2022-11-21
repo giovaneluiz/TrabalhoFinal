@@ -28,7 +28,7 @@ public class SignupController {
 
     @FXML
     void retornar(ActionEvent event) {
-        MainLogin.changeScreen("login");
+        Main.changeScreen("login");
     }
 
     @FXML

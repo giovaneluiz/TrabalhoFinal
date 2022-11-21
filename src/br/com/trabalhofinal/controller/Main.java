@@ -10,6 +10,7 @@ public class Main extends Application {
   private static Stage stage;
   private static Scene loginScene;
   private static Scene signupScene;
+  private static Scene menuScene;
 
   public static void main(String[] args) {
     launch(args);
@@ -25,6 +26,9 @@ public class Main extends Application {
     Parent fxmlSignup = FXMLLoader.load(getClass().getResource("../view/signup.fxml"));
     signupScene = new Scene(fxmlSignup);
 
+    Parent fxmlMenu = FXMLLoader.load(getClass().getResource("../view/menu.fxml"));
+    menuScene = new Scene(fxmlMenu);
+
     primaryStage.setTitle("Login - Conecta Newton");
     primaryStage.setScene(loginScene);
     primaryStage.show();
@@ -38,6 +42,10 @@ public class Main extends Application {
       case "signup":
         stage.setTitle("Criar Conta - Conecta Newton");
         stage.setScene(signupScene);
+        break;
+      case "menu":
+        stage.setTitle("menu");
+        stage.setScene(menuScene);
     }
   }
 }
