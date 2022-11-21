@@ -1,13 +1,13 @@
 package br.com.trabalhofinal.controller;
 
-import javax.swing.JOptionPane;
-
 import br.com.trabalhofinal.model.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class LoginController {
 
@@ -26,13 +26,20 @@ public class LoginController {
   @FXML
   protected void login(ActionEvent event) {
     if (this.txtEmail.getText().isEmpty() || this.txtSenha.getText().isEmpty()) {
-      JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios!");
+      Alert alert = new Alert(AlertType.WARNING);
+      alert.setTitle("Error!");
+      alert.setHeaderText("Informe o usuário e senha para fazer login!");
+      alert.showAndWait();
     } else {
       Login novoLogin = new Login(this.txtEmail.getText(), this.txtSenha.getText());
-      if (novoLogin.logar()) {
+      if (novoLogin.logar() == true) {
         Main.changeScreen("menu");
       } else {
-        JOptionPane.showMessageDialog(null, "usuário ou senha incorretos");
+        this.txtSenha.setText(null);
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Error!");
+        alert.setHeaderText("Erro ao fazer Login! \nUsuário ou senha incorretos.");
+        alert.showAndWait();
       }
     }
   }
