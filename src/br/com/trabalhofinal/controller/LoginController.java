@@ -33,7 +33,7 @@ public class LoginController {
     } else {
       Login novoLogin = new Login(this.txtEmail.getText(), this.txtSenha.getText());
       if (novoLogin.logar() == true) {
-        Main.changeScreen("menu");
+        Main.changeScreen("menu", null);
       } else {
         this.txtSenha.setText(null);
         Alert alert = new Alert(AlertType.WARNING);
@@ -46,6 +46,6 @@ public class LoginController {
 
   @FXML
   void criarConta(ActionEvent event) {
-    Main.changeScreen("signup");
+    Main.changeScreen("signup", null);
   }
 }

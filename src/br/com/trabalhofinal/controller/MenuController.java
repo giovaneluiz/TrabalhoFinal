@@ -7,6 +7,16 @@ import javafx.scene.control.Button;
 public class MenuController {
 
     @FXML
+    protected void initialize() {
+        Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
+            @Override
+            public void onScreenChanged(String newScreen, Object userData) {
+                System.out.println("");
+            }
+        });
+    }
+
+    @FXML
     private Button btnAddAmigo;
 
     @FXML
@@ -20,7 +30,7 @@ public class MenuController {
 
     @FXML
     void addAmigo(ActionEvent event) {
-        Main.changeScreen("add");
+        Main.changeScreen("add", null);
     }
 
     @FXML
@@ -35,7 +45,7 @@ public class MenuController {
 
     @FXML
     void logout(ActionEvent event) {
-        Main.changeScreen("login");
+        Main.changeScreen("login", null);
     }
 
 }

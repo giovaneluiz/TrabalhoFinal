@@ -11,7 +11,7 @@ public class Login extends Usuario {
     super(email, senha);
   }
 
-  private final static String LOGIN_QUERY = "SELECT email, TRIM(senha) AS senha FROM usuario WHERE email = ?";
+  private final static String LOGIN_QUERY = "SELECT id_usuario, email, TRIM(senha) AS senha FROM usuario WHERE email = ?";
 
   public boolean logar() {
     boolean logado = false;
@@ -21,9 +21,12 @@ public class Login extends Usuario {
       PreparedStatement pstmt = conn.prepareStatement(LOGIN_QUERY);
       pstmt.setString(1, getEmail());
       ResultSet rs = pstmt.executeQuery();
+
       if (rs.next()) {
         String senhaBD = rs.getString("senha");
+        int idUsuario = rs.getInt("id_usuario");
         if (senhaBD.equals(getSenha())) {
+          setId(idUsuario);
           logado = true;
         }
       }

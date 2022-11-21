@@ -33,7 +33,7 @@ public class SignupController {
 
     @FXML
     void retornar(ActionEvent event) {
-        Main.changeScreen("login");
+        Main.changeScreen("login", null);
     }
 
     @FXML
@@ -55,7 +55,7 @@ public class SignupController {
                 alert.setTitle("Email em uso!");
                 alert.setHeaderText("Email já cadastrado, efetue o Login!!");
                 alert.showAndWait();
-                Main.changeScreen("login");
+                Main.changeScreen("login", null);
             } else {
                 if (!confereSenha) {
                     Alert alert = new Alert(AlertType.WARNING);
@@ -71,7 +71,7 @@ public class SignupController {
                     alert.setHeaderText("Usuário cadastrado com sucesso!");
                     alert.setContentText("Agora é só fazer o Login e interagir com vários usuários!");
                     alert.showAndWait();
-                    Main.changeScreen("login");
+                    Main.changeScreen("login", null);
                 }
             }
         }

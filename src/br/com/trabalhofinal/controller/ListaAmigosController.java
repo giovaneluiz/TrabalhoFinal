@@ -19,7 +19,7 @@ public class ListaAmigosController {
 
     @FXML
     void voltar(ActionEvent event) {
-        Main.changeScreen("menu");
+        Main.changeScreen("menu", null);
     }
 
 }

@@ -1,5 +1,7 @@
 package br.com.trabalhofinal.controller;
 
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -38,24 +40,42 @@ public class Main extends Application {
     primaryStage.show();
   }
 
-  public static void changeScreen(String src) {
+  public static void changeScreen(String src, Object userData) {
     switch (src) {
       case "login":
         stage.setTitle("Login - Conecta Newton");
         stage.setScene(loginScene);
+        notifyAllListeners("login", userData);
         break;
       case "signup":
         stage.setTitle("Criar Conta - Conecta Newton");
         stage.setScene(signupScene);
         break;
       case "menu":
-        stage.setTitle("menu");
+        stage.setTitle("Menu Principal - Conecta Newton");
+        notifyAllListeners("login", userData);
         stage.setScene(menuScene);
         break;
       case "add":
         stage.setTitle("Adicionar Amigos - Conecta Newton");
         stage.setScene(addAmigoScene);
         break;
+    }
+  }
+
+  private static ArrayList<OnChangeScreen> listeners = new ArrayList<>();
+
+  public static interface OnChangeScreen {
+    void onScreenChanged(String newScreen, Object userData);
+  }
+
+  public static void addOnChangeScreenListener(OnChangeScreen newListener) {
+    listeners.add(newListener);
+  }
+
+  public static void notifyAllListeners(String newScreen, Object userData) {
+    for (OnChangeScreen onChangeScreen : listeners) {
+      onChangeScreen.onScreenChanged(newScreen, userData);
     }
   }
 }
