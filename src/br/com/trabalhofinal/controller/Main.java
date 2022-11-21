@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainLogin extends Application {
+public class Main extends Application {
   private static Stage stage;
   private static Scene loginScene;
   private static Scene signupScene;
