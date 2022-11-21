@@ -14,26 +14,24 @@ public class Login extends Usuario {
   private final static String LOGIN_QUERY = "SELECT email, TRIM(senha) AS senha FROM usuario WHERE email = ?";
 
   public boolean logar() {
-    Connection conn = Conexao.connect();
     boolean logado = false;
 
     try {
+      Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(LOGIN_QUERY);
       pstmt.setString(1, getEmail());
       ResultSet rs = pstmt.executeQuery();
-
       if (rs.next()) {
         String senhaBD = rs.getString("senha");
         if (senhaBD.equals(getSenha())) {
           logado = true;
         }
       }
-
     } catch (SQLException e) {
       Conexao.printSQLException(e);
+    } finally {
+      Conexao.disconnect();
     }
-    Conexao.disconnect();
     return logado;
   }
-
 }
