@@ -42,27 +42,36 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.MenuController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Label layoutX="34.0" layoutY="23.0" prefHeight="0.0" prefWidth="181.0" text="Bem vindo, usuario!">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button alignment="BOTTOM_CENTER" layoutX="34.0" layoutY="87.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Adicionar Amigos" />
-            <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="50.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnAddAmigo" alignment="CENTER" layoutX="34.0" layoutY="252.0" mnemonicParsing="false" onAction="#addAmigo" prefHeight="38.0" prefWidth="150.0" text="Adicionar Amigos">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <ImageView fitHeight="150.0" fitWidth="207.0" layoutX="33.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/add-user.png" />
                </image>
             </ImageView>
-            <Button alignment="BOTTOM_CENTER" layoutX="243.0" layoutY="87.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Consultar Amigos" />
-            <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="259.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnListaAmigos" alignment="CENTER" layoutX="243.0" layoutY="252.0" mnemonicParsing="false" onAction="#listaAmigos" prefHeight="38.0" prefWidth="150.0" text="Consultar Amigos">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <ImageView fitHeight="150.0" fitWidth="188.0" layoutX="245.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/search-user.png" />
                </image>
             </ImageView>
-            <Button alignment="BOTTOM_CENTER" layoutX="456.0" layoutY="87.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Excluir Amigos" />
-            <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="472.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnRemoveAmigo" alignment="CENTER" layoutX="456.0" layoutY="252.0" mnemonicParsing="false" onAction="#removeAmigo" prefHeight="38.0" prefWidth="150.0" text="Excluir Amigos">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <ImageView fitHeight="150.0" fitWidth="226.0" layoutX="456.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/delete-user.png" />
                </image>

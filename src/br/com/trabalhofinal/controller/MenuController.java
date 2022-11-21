@@ -20,7 +20,7 @@ public class MenuController {
 
     @FXML
     void addAmigo(ActionEvent event) {
-
+        Main.changeScreen("add");
     }
 
     @FXML

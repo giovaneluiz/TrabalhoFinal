@@ -11,6 +11,7 @@ public class Main extends Application {
   private static Scene loginScene;
   private static Scene signupScene;
   private static Scene menuScene;
+  private static Scene addAmigoScene;
 
   public static void main(String[] args) {
     launch(args);
@@ -29,6 +30,9 @@ public class Main extends Application {
     Parent fxmlMenu = FXMLLoader.load(getClass().getResource("../view/menu.fxml"));
     menuScene = new Scene(fxmlMenu);
 
+    Parent fxmlAddAmigos = FXMLLoader.load(getClass().getResource("../view/addAmigos.fxml"));
+    addAmigoScene = new Scene(fxmlAddAmigos);
+
     primaryStage.setTitle("Login - Conecta Newton");
     primaryStage.setScene(loginScene);
     primaryStage.show();
@@ -37,6 +41,7 @@ public class Main extends Application {
   public static void changeScreen(String src) {
     switch (src) {
       case "login":
+        stage.setTitle("Login - Conecta Newton");
         stage.setScene(loginScene);
         break;
       case "signup":
@@ -46,6 +51,10 @@ public class Main extends Application {
       case "menu":
         stage.setTitle("menu");
         stage.setScene(menuScene);
+        break;
+      case "add":
+        stage.setTitle("Adicionar Amigos - Conecta Newton");
+        stage.setScene(addAmigoScene);
         break;
     }
   }
