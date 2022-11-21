@@ -25,8 +25,8 @@ public class LoginController {
 
   @FXML
   protected void login(ActionEvent event) {
-    Login l = new Login(this.txtEmail.getText(), this.txtSenha.getText());
-    if (l.logar()) {
+    Login novoLogin = new Login(this.txtEmail.getText(), this.txtSenha.getText());
+    if (novoLogin.logar()) {
       Main.changeScreen("menu");
     } else {
       JOptionPane.showMessageDialog(null, "usuário ou senha incorretos");

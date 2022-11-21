@@ -24,6 +24,15 @@ public class Conexao {
     return conn;
   }
 
+  public static void disconnect() {
+    try {
+      conn.close();
+      System.out.println("Conexão com banco de dados encerrada!");
+    } catch (SQLException e) {
+      printSQLException(e);
+    }
+  }
+
   public static void printSQLException(SQLException ex) {
     for (Throwable e : ex) {
       if (e instanceof SQLException) {

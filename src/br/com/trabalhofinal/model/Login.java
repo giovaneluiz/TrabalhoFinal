@@ -26,13 +26,13 @@ public class Login extends Usuario {
         String senhaBD = rs.getString("senha");
         if (senhaBD.equals(getSenha())) {
           logado = true;
-          conn.close();
         }
       }
 
     } catch (SQLException e) {
       Conexao.printSQLException(e);
     }
+    Conexao.disconnect();
     return logado;
   }
 
