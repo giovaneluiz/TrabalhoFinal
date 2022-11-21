@@ -42,9 +42,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="448.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.SignupController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="703.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="442.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
          <children>
             <Label layoutX="408.0" layoutY="23.0" prefHeight="25.0" prefWidth="109.0" text="Crie sua conta">
                <font>
@@ -56,13 +56,13 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="317.0" layoutY="71.0" prefHeight="38.0" prefWidth="288.0" />
+            <TextField fx:id="txtNome" layoutX="317.0" layoutY="71.0" prefHeight="38.0" prefWidth="288.0" />
             <Label layoutX="317.0" layoutY="118.0" text="E-mail">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="317.0" layoutY="139.0" prefHeight="38.0" prefWidth="288.0" />
+            <TextField fx:id="txtEmail" layoutX="317.0" layoutY="139.0" prefHeight="38.0" prefWidth="288.0" />
             <Label layoutX="318.0" layoutY="186.0" text="Senha">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -73,18 +73,23 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button defaultButton="true" layoutX="318.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="288.0" text="Criar conta">
+            <Button fx:id="btnSignup" defaultButton="true" layoutX="318.0" layoutY="331.0" mnemonicParsing="false" onAction="#signup" prefHeight="38.0" prefWidth="288.0" text="Criar conta">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <ImageView fitHeight="338.0" fitWidth="359.0" layoutX="-21.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Conecta.png" />
+                  <Image url="@imgs/Conecta.png" />
                </image>
             </ImageView>
-            <PasswordField layoutX="318.0" layoutY="207.0" prefHeight="38.0" prefWidth="288.0" />
-            <PasswordField layoutX="320.0" layoutY="275.0" prefHeight="38.0" prefWidth="288.0" />
+            <PasswordField fx:id="txtSenha" layoutX="318.0" layoutY="207.0" prefHeight="38.0" prefWidth="288.0" />
+            <PasswordField fx:id="txtConfirmaSenha" layoutX="320.0" layoutY="275.0" prefHeight="38.0" prefWidth="288.0" />
+            <Button fx:id="btnRetornar" layoutX="320.0" layoutY="389.0" mnemonicParsing="false" onAction="#retornar" prefHeight="38.0" prefWidth="288.0" text="Retonar para o Login">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>

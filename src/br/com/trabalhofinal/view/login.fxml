@@ -42,13 +42,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.LoginController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="752.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="338.0" fitWidth="359.0" layoutX="-22.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Conecta.png" />
+                  <Image url="@imgs/Conecta.png" />
                </image>
             </ImageView>
             <Label layoutX="304.0" layoutY="52.0" text="Já possui conta? Faça login agora mesmo!">
@@ -70,8 +70,8 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <PasswordField layoutX="317.0" layoutY="171.0" prefHeight="38.0" prefWidth="290.0" />
-            <Button defaultButton="true" layoutX="317.0" layoutY="224.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="290.0" styleClass="btn" text="Acessar">
+            <PasswordField fx:id="txtSenha" layoutX="317.0" layoutY="171.0" prefHeight="38.0" prefWidth="290.0" />
+            <Button fx:id="btnLogin" defaultButton="true" layoutX="317.0" layoutY="224.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="290.0" styleClass="btn" text="Acessar">
                <font>
                   <Font size="14.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="316.0" layoutY="327.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="290.0" text="Criar conta">
+            <Button fx:id="btnCriarConta" layoutX="316.0" layoutY="327.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="38.0" prefWidth="290.0" text="Criar conta">
                <font>
                   <Font size="14.0" />
                </font>
