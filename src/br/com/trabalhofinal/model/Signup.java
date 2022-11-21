@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Sigup extends Usuario {
+public class Signup extends Usuario {
 
-  public Sigup(String nome, String email, String senha) {
+  public Signup(String nome, String email, String senha) {
     super(nome, email, senha);
   }
 
