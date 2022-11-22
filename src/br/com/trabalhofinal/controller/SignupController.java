@@ -3,6 +3,7 @@ package br.com.trabalhofinal.controller;
 import java.sql.SQLException;
 
 import br.com.trabalhofinal.model.Signup;
+import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -36,7 +37,7 @@ public class SignupController {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
 
             @Override
-            public void onScreenChanged(String newScreen, Object userData) {
+            public void onScreenChanged(String newScreen, Usuario userData) {
                 if (newScreen.equals("add")) {
                     txtNome.setText("");
                     txtEmail.setText("");

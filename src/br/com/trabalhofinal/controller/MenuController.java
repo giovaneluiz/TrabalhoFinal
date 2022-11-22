@@ -1,10 +1,25 @@
 package br.com.trabalhofinal.controller;
 
+import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class MenuController {
+    private Usuario usuarioLogado;
+
+    @FXML
+    private void initialize() {
+        Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
+
+            @Override
+            public void onScreenChanged(String newScreen, Usuario userData) {
+                if (newScreen.equals("menu")) {
+                    usuarioLogado = userData;
+                }
+            }
+        });
+    }
 
     @FXML
     private Button btnAddAmigo;
@@ -20,7 +35,7 @@ public class MenuController {
 
     @FXML
     void addAmigo(ActionEvent event) {
-        Main.changeScreen("add", null);
+        Main.changeScreen("add", usuarioLogado);
     }
 
     @FXML

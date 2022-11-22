@@ -50,7 +50,8 @@ public class AddAmigos {
       PreparedStatement pstmt = conn.prepareStatement(INSERT_SEGUIDOR_QUERY);
       pstmt.setInt(1, id_usuario_principal);
       pstmt.setInt(2, id_usuario_seguindo);
-      pstmt.executeQuery();
+      pstmt.execute();
+
     } catch (SQLException e) {
       Conexao.printSQLException(e);
     } finally {

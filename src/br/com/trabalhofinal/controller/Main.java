@@ -2,6 +2,7 @@ package br.com.trabalhofinal.controller;
 
 import java.util.ArrayList;
 
+import br.com.trabalhofinal.model.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,8 @@ public class Main extends Application {
   private static Scene signupScene;
   private static Scene menuScene;
   private static Scene addAmigoScene;
+
+  public static Usuario usuarioLogado = null;
 
   public static void main(String[] args) {
     launch(args);
@@ -40,7 +43,7 @@ public class Main extends Application {
     primaryStage.show();
   }
 
-  public static void changeScreen(String src, Object userData) {
+  public static void changeScreen(String src, Usuario userData) {
     switch (src) {
       case "login":
         stage.setTitle("Login - Conecta Newton");
@@ -68,14 +71,14 @@ public class Main extends Application {
   private static ArrayList<OnChangeScreen> listeners = new ArrayList<>();
 
   public static interface OnChangeScreen {
-    void onScreenChanged(String newScreen, Object userData);
+    void onScreenChanged(String newScreen, Usuario userData);
   }
 
   public static void addOnChangeScreenListener(OnChangeScreen newListener) {
     listeners.add(newListener);
   }
 
-  public static void notifyAllListeners(String newScreen, Object userData) {
+  public static void notifyAllListeners(String newScreen, Usuario userData) {
     for (OnChangeScreen onChangeScreen : listeners) {
       onChangeScreen.onScreenChanged(newScreen, userData);
     }

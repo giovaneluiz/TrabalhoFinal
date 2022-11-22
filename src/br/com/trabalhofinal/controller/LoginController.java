@@ -1,6 +1,7 @@
 package br.com.trabalhofinal.controller;
 
 import br.com.trabalhofinal.model.Login;
+import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -25,13 +26,14 @@ public class LoginController {
 
   @FXML
   private void initialize() {
+    txtEmail.setText("giovane@mail");
+    txtSenha.setText("123");
     Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
 
       @Override
-      public void onScreenChanged(String newScreen, Object userData) {
+      public void onScreenChanged(String newScreen, Usuario userData) {
         if (newScreen.equals("login")) {
-          txtEmail.setText("");
-          txtSenha.setText("");
+
         }
       }
     });

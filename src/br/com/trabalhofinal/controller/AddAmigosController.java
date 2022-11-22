@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import br.com.trabalhofinal.model.AddAmigos;
 import br.com.trabalhofinal.model.ContaUsuario;
+import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -14,13 +15,16 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 
 public class AddAmigosController {
+    private Usuario usuarioLogado;
+
     @FXML
     private void initialize() {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
 
             @Override
-            public void onScreenChanged(String newScreen, Object userData) {
+            public void onScreenChanged(String newScreen, Usuario userData) {
                 if (newScreen.equals("add")) {
+                    usuarioLogado = userData;
                     updateList();
                 }
             }
@@ -43,7 +47,8 @@ public class AddAmigosController {
 
         if (result.get() == ButtonType.OK) {
             AddAmigos seguirNovo = new AddAmigos();
-            seguirNovo.seguirConta(14, usuario.getId());
+            seguirNovo.seguirConta(usuarioLogado.getId(), usuario.getId());
+            Main.changeScreen("menu", usuarioLogado);
         }
     }
 
