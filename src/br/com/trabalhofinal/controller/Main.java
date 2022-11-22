@@ -16,6 +16,7 @@ public class Main extends Application {
   private static Scene menuScene;
   private static Scene addAmigoScene;
   private static Scene listSeguindoScene;
+  private static Scene excluirSeguindoScene;
 
   public static Usuario usuarioLogado = null;
 
@@ -39,8 +40,11 @@ public class Main extends Application {
     Parent fxmlSeguirPerfil = FXMLLoader.load(getClass().getResource("../view/seguir-perfil.fxml"));
     addAmigoScene = new Scene(fxmlSeguirPerfil);
 
-    Parent fxmlPerfisSeguindo = FXMLLoader.load(getClass().getResource("../view/perfis-seguindo.fxml"));
-    listSeguindoScene = new Scene(fxmlPerfisSeguindo);
+    Parent fxmlListarSeguindo = FXMLLoader.load(getClass().getResource("../view/listar-seguindo.fxml"));
+    listSeguindoScene = new Scene(fxmlListarSeguindo);
+
+    Parent fxmlExcluirSeguindo = FXMLLoader.load(getClass().getResource("../view/excluir-perfil.fxml"));
+    excluirSeguindoScene = new Scene(fxmlExcluirSeguindo);
 
     primaryStage.setTitle("Login - Conecta Newton");
     primaryStage.setScene(loginScene);
@@ -73,6 +77,11 @@ public class Main extends Application {
         stage.setTitle("Usuários que estou seguindo - Conecta Newton");
         stage.setScene(listSeguindoScene);
         notifyAllListeners("list", userData);
+        break;
+      case "excluir":
+        stage.setTitle("Remover usuários que estou seguindo - Conecta Newton");
+        stage.setScene(excluirSeguindoScene);
+        notifyAllListeners("excluir", userData);
         break;
     }
   }

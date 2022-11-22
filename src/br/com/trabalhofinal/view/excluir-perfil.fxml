@@ -39,18 +39,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.SeguirPerfilController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.ExcluirPerfilController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="btnSeguir" defaultButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#seguirUsuario" text="Seguir Usuário" />
+            <Button fx:id="btnExcluir" defaultButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#excluirUsuario" text="Deixar de Seguir" />
             <Button fx:id="btnVoltar" layoutX="575.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Label layoutX="18.0" layoutY="58.0" text="Conheça novos usuários. Selecione o usuário e clique no botão &quot;Seguir Usuário&quot;.">
+            <Label layoutX="18.0" layoutY="58.0" text="Selecione um usuário e clique em &quot;Deixar de Seguir&quot;.">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <ListView fx:id="viewAmigos" layoutX="14.0" layoutY="82.0" prefHeight="309.0" prefWidth="609.0" />
+            <ListView fx:id="viewPerfisSeguindo" layoutX="14.0" layoutY="82.0" prefHeight="309.0" prefWidth="609.0" />
          </children>
     </AnchorPane>
   </children>

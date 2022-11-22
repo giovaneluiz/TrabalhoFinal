@@ -45,7 +45,7 @@ public class MenuController {
 
     @FXML
     void removeAmigo(ActionEvent event) {
-
+        Main.changeScreen("excluir", usuarioLogado);
     }
 
     @FXML
