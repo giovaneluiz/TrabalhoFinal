@@ -40,7 +40,7 @@ public class MenuController {
 
     @FXML
     void listaAmigos(ActionEvent event) {
-
+        Main.changeScreen("list", usuarioLogado);
     }
 
     @FXML

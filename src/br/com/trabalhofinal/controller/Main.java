@@ -15,6 +15,7 @@ public class Main extends Application {
   private static Scene signupScene;
   private static Scene menuScene;
   private static Scene addAmigoScene;
+  private static Scene listSeguindoScene;
 
   public static Usuario usuarioLogado = null;
 
@@ -37,6 +38,9 @@ public class Main extends Application {
 
     Parent fxmlSeguirPerfil = FXMLLoader.load(getClass().getResource("../view/seguir-perfil.fxml"));
     addAmigoScene = new Scene(fxmlSeguirPerfil);
+
+    Parent fxmlPerfisSeguindo = FXMLLoader.load(getClass().getResource("../view/perfis-seguindo.fxml"));
+    listSeguindoScene = new Scene(fxmlPerfisSeguindo);
 
     primaryStage.setTitle("Login - Conecta Newton");
     primaryStage.setScene(loginScene);
@@ -64,6 +68,11 @@ public class Main extends Application {
         stage.setTitle("Adicionar Amigos - Conecta Newton");
         stage.setScene(addAmigoScene);
         notifyAllListeners("add", userData);
+        break;
+      case "list":
+        stage.setTitle("Usuários que estou seguindo - Conecta Newton");
+        stage.setScene(listSeguindoScene);
+        notifyAllListeners("list", userData);
         break;
     }
   }
