@@ -33,7 +33,7 @@ public class LoginController {
     } else {
       Login novoLogin = new Login(this.txtEmail.getText(), this.txtSenha.getText());
       if (novoLogin.logar() == true) {
-        Main.changeScreen("menu", null);
+        Main.changeScreen("menu", novoLogin);
       } else {
         this.txtSenha.setText(null);
         Alert alert = new Alert(AlertType.WARNING);

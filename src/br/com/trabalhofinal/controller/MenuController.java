@@ -11,7 +11,9 @@ public class MenuController {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
             @Override
             public void onScreenChanged(String newScreen, Object userData) {
-                System.out.println("");
+                if (newScreen.equals("menu")) {
+
+                }
             }
         });
     }

@@ -50,15 +50,17 @@ public class Main extends Application {
       case "signup":
         stage.setTitle("Criar Conta - Conecta Newton");
         stage.setScene(signupScene);
+        notifyAllListeners("signup", userData);
         break;
       case "menu":
         stage.setTitle("Menu Principal - Conecta Newton");
-        notifyAllListeners("login", userData);
         stage.setScene(menuScene);
+        notifyAllListeners("menu", userData);
         break;
       case "add":
         stage.setTitle("Adicionar Amigos - Conecta Newton");
         stage.setScene(addAmigoScene);
+        notifyAllListeners("add", userData);
         break;
     }
   }

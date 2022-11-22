@@ -50,7 +50,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ListView layoutX="14.0" layoutY="82.0" prefHeight="309.0" prefWidth="609.0" />
+            <ListView fx:id="viewAmigos" layoutX="14.0" layoutY="82.0" prefHeight="309.0" prefWidth="609.0" />
          </children>
     </AnchorPane>
   </children>

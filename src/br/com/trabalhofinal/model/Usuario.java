@@ -17,6 +17,12 @@ public abstract class Usuario {
     this.senha = senha;
   }
 
+  public Usuario(int id, String nome, String email) {
+    this.id = id;
+    this.nome = nome;
+    this.email = email;
+  }
+
   public String getNome() {
     return nome;
   }
