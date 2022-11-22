@@ -6,25 +6,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class AddAmigos {
+public class SeguirPerfil {
   private ArrayList<PerfilUsuario> perfilUsuarios = new ArrayList<PerfilUsuario>();
 
-  private final static String SELECT_PERFIL_QUERY = "SELECT id_usuario, nome, email FROM usuario WHERE id_usuario <> ?";
+  private final static String SELECT_PERFIL_QUERY = "SELECT U.id_usuario, TRIM(U.nome) AS nome, U.email FROM usuario U"
+      + " LEFT OUTER JOIN seguidor_usuario S ON U.id_usuario = S.id_usuario_seguindo"
+      + " WHERE S.id_usuario_principal IS null AND U.id_usuario <> ?"
+      + " ORDER BY id_usuario";
+
   private final static String INSERT_SEGUIDOR_QUERY = "INSERT INTO seguidor_usuario (id_usuario_principal, id_usuario_seguindo) VALUES (?, ?)";
 
-  public ArrayList<PerfilUsuario> getContaUsuarios() {
-    return perfilUsuarios;
-  }
-
-  public void setContaUsuarios(ArrayList<PerfilUsuario> perfilUsuarios) {
-    this.perfilUsuarios = perfilUsuarios;
-  }
-
-  public ArrayList<PerfilUsuario> buscaAmigosParaSeguir() {
+  public ArrayList<PerfilUsuario> buscaPerfilParaSeguir(int id_usuario_logado) {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(SELECT_PERFIL_QUERY);
-      pstmt.setInt(1, 0);
+      pstmt.setInt(1, id_usuario_logado);
       ResultSet rs = pstmt.executeQuery();
 
       if (rs.next()) {

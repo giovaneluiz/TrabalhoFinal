@@ -3,7 +3,7 @@ package br.com.trabalhofinal.controller;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import br.com.trabalhofinal.model.AddAmigos;
+import br.com.trabalhofinal.model.SeguirPerfil;
 import br.com.trabalhofinal.model.PerfilUsuario;
 import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
@@ -14,8 +14,17 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 
-public class AddAmigosController {
+public class SeguirPerfilController {
     private Usuario usuarioLogado;
+
+    @FXML
+    private Button btnSeguir;
+
+    @FXML
+    private Button btnVoltar;
+
+    @FXML
+    private ListView<PerfilUsuario> viewAmigos;
 
     @FXML
     private void initialize() {
@@ -32,13 +41,7 @@ public class AddAmigosController {
     }
 
     @FXML
-    private Button btnAdd;
-
-    @FXML
-    private Button btnVoltar;
-
-    @FXML
-    void addAmigo(ActionEvent event) {
+    void seguirUsuario(ActionEvent event) {
         PerfilUsuario perfilUsuario = viewAmigos.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmação de amizade");
@@ -46,24 +49,21 @@ public class AddAmigosController {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {
-            AddAmigos seguirNovo = new AddAmigos();
+            SeguirPerfil seguirNovo = new SeguirPerfil();
             seguirNovo.seguirConta(usuarioLogado.getId(), perfilUsuario.getId());
             Main.changeScreen("menu", usuarioLogado);
         }
     }
 
     @FXML
-    private ListView<PerfilUsuario> viewAmigos;
-
-    @FXML
     void voltar(ActionEvent event) {
-        Main.changeScreen("menu", null);
+        Main.changeScreen("menu", usuarioLogado);
     }
 
     private void updateList() {
         viewAmigos.getItems().clear();
-        AddAmigos addAmigos = new AddAmigos();
-        ArrayList<PerfilUsuario> contas = addAmigos.buscaAmigosParaSeguir();
+        SeguirPerfil addAmigos = new SeguirPerfil();
+        ArrayList<PerfilUsuario> contas = addAmigos.buscaPerfilParaSeguir(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewAmigos.getItems().add(contaUsuario);
         }

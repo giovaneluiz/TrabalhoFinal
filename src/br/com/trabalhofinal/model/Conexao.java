@@ -13,11 +13,11 @@ public class Conexao {
   public static Connection connect() {
     try {
       conn = DriverManager.getConnection(url, user, password);
-      if (conn != null) {
-        System.out.println("Banco de dados conectado com sucesso!");
-      } else {
-        System.out.println("Falha na conexão com o banco de dados!");
-      }
+      // if (conn != null) {
+      // System.out.println("Banco de dados conectado com sucesso!");
+      // } else {
+      // System.out.println("Falha na conexão com o banco de dados!");
+      // }
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
@@ -27,7 +27,7 @@ public class Conexao {
   public static void disconnect() {
     try {
       conn.close();
-      System.out.println("Conexão com banco de dados encerrada!");
+      // System.out.println("Conexão com banco de dados encerrada!");
     } catch (SQLException e) {
       printSQLException(e);
     }
