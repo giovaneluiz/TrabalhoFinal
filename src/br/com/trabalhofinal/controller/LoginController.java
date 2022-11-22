@@ -26,14 +26,14 @@ public class LoginController {
 
   @FXML
   private void initialize() {
-    txtEmail.setText("giovane@mail");
-    txtSenha.setText("123");
+
     Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
 
       @Override
       public void onScreenChanged(String newScreen, Usuario userData) {
         if (newScreen.equals("login")) {
-
+          txtEmail.setText("");
+          txtSenha.setText("");
         }
       }
     });

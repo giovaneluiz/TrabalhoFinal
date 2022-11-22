@@ -46,7 +46,7 @@ public class ExcluirPerfilController {
         PerfilUsuario perfilUsuario = viewPerfisSeguindo.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Deixar de seguir usuário");
-        alert.setHeaderText("Deseja parar de seguir o usuário" + perfilUsuario.getNome() + "?");
+        alert.setHeaderText("Deseja parar de seguir o usuário " + perfilUsuario.getNome() + "?");
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {

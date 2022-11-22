@@ -81,7 +81,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnCriarConta" layoutX="316.0" layoutY="327.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="38.0" prefWidth="290.0" text="Criar conta">
+            <Button fx:id="btnCriarConta" layoutX="316.0" layoutY="327.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="38.0" prefWidth="290.0" text="Criar Conta">
                <font>
                   <Font size="14.0" />
                </font>
