@@ -35,8 +35,8 @@ public class Main extends Application {
     Parent fxmlMenu = FXMLLoader.load(getClass().getResource("../view/menu.fxml"));
     menuScene = new Scene(fxmlMenu);
 
-    Parent fxmlAddAmigos = FXMLLoader.load(getClass().getResource("../view/perfis-seguindo.fxml"));
-    addAmigoScene = new Scene(fxmlAddAmigos);
+    Parent fxmlSeguirPerfil = FXMLLoader.load(getClass().getResource("../view/seguir-perfil.fxml"));
+    addAmigoScene = new Scene(fxmlSeguirPerfil);
 
     primaryStage.setTitle("Login - Conecta Newton");
     primaryStage.setScene(loginScene);
