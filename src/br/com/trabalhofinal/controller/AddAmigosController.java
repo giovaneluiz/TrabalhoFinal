@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import br.com.trabalhofinal.model.AddAmigos;
-import br.com.trabalhofinal.model.ContaUsuario;
+import br.com.trabalhofinal.model.PerfilUsuario;
 import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,21 +39,21 @@ public class AddAmigosController {
 
     @FXML
     void addAmigo(ActionEvent event) {
-        ContaUsuario usuario = viewAmigos.getSelectionModel().getSelectedItem();
+        PerfilUsuario perfilUsuario = viewAmigos.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmação de amizade");
-        alert.setHeaderText("Seguir usuário " + usuario.getNome() + "?");
+        alert.setHeaderText("Seguir usuário " + perfilUsuario.getNome() + "?");
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {
             AddAmigos seguirNovo = new AddAmigos();
-            seguirNovo.seguirConta(usuarioLogado.getId(), usuario.getId());
+            seguirNovo.seguirConta(usuarioLogado.getId(), perfilUsuario.getId());
             Main.changeScreen("menu", usuarioLogado);
         }
     }
 
     @FXML
-    private ListView<ContaUsuario> viewAmigos;
+    private ListView<PerfilUsuario> viewAmigos;
 
     @FXML
     void voltar(ActionEvent event) {
@@ -63,8 +63,8 @@ public class AddAmigosController {
     private void updateList() {
         viewAmigos.getItems().clear();
         AddAmigos addAmigos = new AddAmigos();
-        ArrayList<ContaUsuario> contas = addAmigos.buscaAmigosParaSeguir();
-        for (ContaUsuario contaUsuario : contas) {
+        ArrayList<PerfilUsuario> contas = addAmigos.buscaAmigosParaSeguir();
+        for (PerfilUsuario contaUsuario : contas) {
             viewAmigos.getItems().add(contaUsuario);
         }
     }

@@ -7,33 +7,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AddAmigos {
-  private ArrayList<ContaUsuario> contas = new ArrayList<>();
+  private ArrayList<PerfilUsuario> perfilUsuarios = new ArrayList<PerfilUsuario>();
 
-  private final static String SELECT_AMIGOS_QUERY = "SELECT id_usuario, nome, email FROM usuario WHERE id_usuario <> ?";
+  private final static String SELECT_PERFIL_QUERY = "SELECT id_usuario, nome, email FROM usuario WHERE id_usuario <> ?";
   private final static String INSERT_SEGUIDOR_QUERY = "INSERT INTO seguidor_usuario (id_usuario_principal, id_usuario_seguindo) VALUES (?, ?)";
 
-  public ArrayList<ContaUsuario> getContaUsuarios() {
-    return contas;
+  public ArrayList<PerfilUsuario> getContaUsuarios() {
+    return perfilUsuarios;
   }
 
-  public void setContaUsuarios(ArrayList<ContaUsuario> contas) {
-    this.contas = contas;
+  public void setContaUsuarios(ArrayList<PerfilUsuario> perfilUsuarios) {
+    this.perfilUsuarios = perfilUsuarios;
   }
 
-  public ArrayList<ContaUsuario> buscaAmigosParaSeguir() {
+  public ArrayList<PerfilUsuario> buscaAmigosParaSeguir() {
     try {
       Connection conn = Conexao.connect();
-      PreparedStatement pstmt = conn.prepareStatement(SELECT_AMIGOS_QUERY);
+      PreparedStatement pstmt = conn.prepareStatement(SELECT_PERFIL_QUERY);
       pstmt.setInt(1, 0);
       ResultSet rs = pstmt.executeQuery();
 
       if (rs.next()) {
         while (rs.next()) {
-          ContaUsuario conta = new ContaUsuario(
+          PerfilUsuario conta = new PerfilUsuario(
               rs.getInt("id_usuario"),
               rs.getString("nome"),
               rs.getString("email"));
-          contas.add(conta);
+          perfilUsuarios.add(conta);
         }
       }
     } catch (SQLException e) {
@@ -41,7 +41,7 @@ public class AddAmigos {
     } finally {
       Conexao.disconnect();
     }
-    return contas;
+    return perfilUsuarios;
   }
 
   public void seguirConta(int id_usuario_principal, int id_usuario_seguindo) {
