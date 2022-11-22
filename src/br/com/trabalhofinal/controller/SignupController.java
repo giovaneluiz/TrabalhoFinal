@@ -32,6 +32,22 @@ public class SignupController {
     private PasswordField txtSenha;
 
     @FXML
+    private void initialize() {
+        Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
+
+            @Override
+            public void onScreenChanged(String newScreen, Object userData) {
+                if (newScreen.equals("add")) {
+                    txtNome.setText("");
+                    txtEmail.setText("");
+                    txtSenha.setText("");
+                    txtConfirmaSenha.setText("");
+                }
+            }
+        });
+    }
+
+    @FXML
     void retornar(ActionEvent event) {
         Main.changeScreen("login", null);
     }

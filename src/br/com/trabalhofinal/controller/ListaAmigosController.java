@@ -12,12 +12,6 @@ import javafx.scene.control.ListView;
 public class ListaAmigosController {
 
     @FXML
-    private Button btnAdd;
-
-    @FXML
-    private Button btnVoltar;
-
-    @FXML
     private void initialize() {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
 
@@ -29,6 +23,12 @@ public class ListaAmigosController {
             }
         });
     }
+
+    @FXML
+    private Button btnAdd;
+
+    @FXML
+    private Button btnVoltar;
 
     @FXML
     void addAmigo(ActionEvent event) {

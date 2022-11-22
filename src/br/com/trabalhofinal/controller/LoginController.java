@@ -24,6 +24,20 @@ public class LoginController {
   private PasswordField txtSenha;
 
   @FXML
+  private void initialize() {
+    Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
+
+      @Override
+      public void onScreenChanged(String newScreen, Object userData) {
+        if (newScreen.equals("login")) {
+          txtEmail.setText("");
+          txtSenha.setText("");
+        }
+      }
+    });
+  }
+
+  @FXML
   protected void login(ActionEvent event) {
     if (this.txtEmail.getText().isEmpty() || this.txtSenha.getText().isEmpty()) {
       Alert alert = new Alert(AlertType.WARNING);

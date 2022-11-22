@@ -7,18 +7,6 @@ import javafx.scene.control.Button;
 public class MenuController {
 
     @FXML
-    protected void initialize() {
-        Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
-            @Override
-            public void onScreenChanged(String newScreen, Object userData) {
-                if (newScreen.equals("menu")) {
-
-                }
-            }
-        });
-    }
-
-    @FXML
     private Button btnAddAmigo;
 
     @FXML
