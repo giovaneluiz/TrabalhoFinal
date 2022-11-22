@@ -39,12 +39,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.ListaAmigosController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.trabalhofinal.controller.AddAmigosController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Button fx:id="btnAdd" defaultButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addAmigo" text="Adiocionar amigo" />
-            <Button fx:id="btnVoltar" layoutX="578.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+            <Button fx:id="btnVoltar" layoutX="575.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
             <Label layoutX="14.0" layoutY="62.0" prefHeight="20.0" prefWidth="493.0" text="Conheça novos usuários. Selecione o amigo e clique no botão Adicionar amigo ">
                <font>
                   <Font size="14.0" />

@@ -1,16 +1,19 @@
 package br.com.trabalhofinal.controller;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import br.com.trabalhofinal.model.AddAmigos;
 import br.com.trabalhofinal.model.ContaUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
 
-public class ListaAmigosController {
-
+public class AddAmigosController {
     @FXML
     private void initialize() {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
@@ -32,7 +35,16 @@ public class ListaAmigosController {
 
     @FXML
     void addAmigo(ActionEvent event) {
+        ContaUsuario usuario = viewAmigos.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação de amizade");
+        alert.setHeaderText("Seguir usuário " + usuario.getNome() + "?");
+        Optional<ButtonType> result = alert.showAndWait();
 
+        if (result.get() == ButtonType.OK) {
+            AddAmigos seguirNovo = new AddAmigos();
+            seguirNovo.seguirConta(14, usuario.getId());
+        }
     }
 
     @FXML
