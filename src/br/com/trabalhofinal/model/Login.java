@@ -11,7 +11,7 @@ public class Login extends Usuario {
     super(email, senha);
   }
 
-  private final static String LOGIN_QUERY = "SELECT nome, id_usuario, email, TRIM(senha) AS senha FROM usuario WHERE email = ?";
+  private final static String LOGIN_QUERY = "SELECT initcap(nome) as nome, id_usuario, email, TRIM(senha) AS senha FROM usuario WHERE email = ?";
 
   public boolean logar() {
     boolean logado = false;
