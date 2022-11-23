@@ -4,6 +4,7 @@ import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class MenuController {
     private Usuario usuarioLogado;
@@ -16,10 +17,14 @@ public class MenuController {
             public void onScreenChanged(String newScreen, Usuario userData) {
                 if (newScreen.equals("menu")) {
                     usuarioLogado = userData;
+                    lbBemVindo.setText("Bem vindo, " + usuarioLogado.getNome() + "!");
                 }
             }
         });
     }
+
+    @FXML
+    private Label lbBemVindo;
 
     @FXML
     private Button btnAddAmigo;

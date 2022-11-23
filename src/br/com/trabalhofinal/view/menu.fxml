@@ -44,7 +44,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label layoutX="34.0" layoutY="23.0" prefHeight="0.0" prefWidth="181.0" text="Bem vindo, usuario!">
+            <Label fx:id="lbBemVindo" layoutX="34.0" layoutY="23.0" text="Bem vindo, usuario!">
                <font>
                   <Font size="18.0" />
                </font>
