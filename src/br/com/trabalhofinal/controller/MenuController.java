@@ -10,20 +10,6 @@ public class MenuController {
     private Usuario usuarioLogado;
 
     @FXML
-    private void initialize() {
-        Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
-
-            @Override
-            public void onScreenChanged(String newScreen, Usuario userData) {
-                if (newScreen.equals("menu")) {
-                    usuarioLogado = userData;
-                    lbBemVindo.setText("Bem vindo, " + usuarioLogado.getNome() + "!");
-                }
-            }
-        });
-    }
-
-    @FXML
     private Label lbBemVindo;
 
     @FXML
@@ -37,6 +23,20 @@ public class MenuController {
 
     @FXML
     private Button btnRemoveAmigo;
+
+    @FXML
+    private void initialize() {
+        Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
+
+            @Override
+            public void onScreenChanged(String newScreen, Usuario userData) {
+                if (newScreen.equals("menu")) {
+                    usuarioLogado = userData;
+                    lbBemVindo.setText("Bem vindo, " + usuarioLogado.getNome() + "!");
+                }
+            }
+        });
+    }
 
     @FXML
     void addAmigo(ActionEvent event) {
