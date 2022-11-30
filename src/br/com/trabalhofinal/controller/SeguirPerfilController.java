@@ -3,7 +3,7 @@ package br.com.trabalhofinal.controller;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import br.com.trabalhofinal.model.SeguirPerfil;
+import br.com.trabalhofinal.model.AdicionaAmigo;
 import br.com.trabalhofinal.model.PerfilUsuario;
 import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
@@ -49,7 +49,7 @@ public class SeguirPerfilController {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {
-            SeguirPerfil seguirNovo = new SeguirPerfil();
+            AdicionaAmigo seguirNovo = new AdicionaAmigo();
             seguirNovo.seguirConta(usuarioLogado.getId(), perfilUsuario.getId());
             Main.changeScreen("menu", usuarioLogado);
         }
@@ -62,8 +62,8 @@ public class SeguirPerfilController {
 
     private void updateList() {
         viewAmigos.getItems().clear();
-        SeguirPerfil addAmigos = new SeguirPerfil();
-        ArrayList<PerfilUsuario> contas = addAmigos.buscaPerfilParaSeguir(usuarioLogado.getId());
+        AdicionaAmigo addAmigos = new AdicionaAmigo();
+        ArrayList<PerfilUsuario> contas = addAmigos.buscaPerfilUsuarioParaAdicionar(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewAmigos.getItems().add(contaUsuario);
         }

@@ -10,7 +10,7 @@ public class PerfisSeguindo {
   private ArrayList<PerfilUsuario> perfilUsuarios = new ArrayList<PerfilUsuario>();
 
   private final static String SELECT_PERFIL_QUERY = "SELECT U.id_usuario, TRIM(U.nome) AS nome, U.email FROM usuario U"
-      + " INNER JOIN seguidor_usuario S ON U.id_usuario = S.id_usuario_seguindo"
+      + " INNER JOIN amizade S ON U.id_usuario = S.id_usuario_amigo"
       + " WHERE S.id_usuario_principal = ?"
       + " ORDER BY id_usuario";
 
