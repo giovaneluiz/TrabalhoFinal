@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ExcluirPerfilSeguindo {
+public class RemoverAmigo {
   private final static String DELETE_SEGUIDOR_QUERY = "DELETE FROM amizade WHERE id_usuario_principal = ? AND id_usuario_amigo = ?";
 
-  public void excluirPerfil(int id_usuario_principal, int id_usuario_amigo) {
+  public void desfazerAmizade(int id_usuario_principal, int id_usuario_amigo) {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(DELETE_SEGUIDOR_QUERY);

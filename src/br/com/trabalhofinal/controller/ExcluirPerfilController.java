@@ -3,7 +3,7 @@ package br.com.trabalhofinal.controller;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import br.com.trabalhofinal.model.ExcluirPerfilSeguindo;
+import br.com.trabalhofinal.model.RemoverAmigo;
 import br.com.trabalhofinal.model.PerfilUsuario;
 import br.com.trabalhofinal.model.ListarAmigos;
 import br.com.trabalhofinal.model.Usuario;
@@ -25,7 +25,7 @@ public class ExcluirPerfilController {
     private Button btnVoltar;
 
     @FXML
-    private ListView<PerfilUsuario> viewPerfisSeguindo;
+    private ListView<PerfilUsuario> viewAmizades;
 
     @FXML
     private void initialize() {
@@ -35,7 +35,7 @@ public class ExcluirPerfilController {
             public void onScreenChanged(String newScreen, Usuario userData) {
                 if (newScreen.equals("excluir")) {
                     usuarioLogado = userData;
-                    updateList();
+                    carregaLista();
                 }
             }
         });
@@ -43,16 +43,20 @@ public class ExcluirPerfilController {
 
     @FXML
     void excluirUsuario(ActionEvent event) {
-        PerfilUsuario perfilUsuario = viewPerfisSeguindo.getSelectionModel().getSelectedItem();
+        PerfilUsuario perfilUsuario = viewAmizades.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Deixar de seguir usuário");
-        alert.setHeaderText("Deseja parar de seguir o usuário " + perfilUsuario.getNome() + "?");
+        alert.setTitle("Desfazer amizade");
+        alert.setHeaderText("Deseja desfazer a amizade com o usuário " + perfilUsuario.getNome() + "?");
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {
-            ExcluirPerfilSeguindo excluirPerfil = new ExcluirPerfilSeguindo();
-            excluirPerfil.excluirPerfil(usuarioLogado.getId(), perfilUsuario.getId());
-            Main.changeScreen("menu", usuarioLogado);
+            RemoverAmigo excluirPerfil = new RemoverAmigo();
+            excluirPerfil.desfazerAmizade(usuarioLogado.getId(), perfilUsuario.getId());
+            alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Deixar de seguir usuário");
+            alert.setHeaderText("Você e o usuário " + perfilUsuario.getNome() + ", não são mais amigos!");
+            alert.show();
+            carregaLista();
         }
     }
 
@@ -61,12 +65,12 @@ public class ExcluirPerfilController {
         Main.changeScreen("menu", usuarioLogado);
     }
 
-    private void updateList() {
-        viewPerfisSeguindo.getItems().clear();
+    private void carregaLista() {
+        viewAmizades.getItems().clear();
         ListarAmigos seguindo = new ListarAmigos();
         ArrayList<PerfilUsuario> contas = seguindo.buscaAmizades(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
-            viewPerfisSeguindo.getItems().add(contaUsuario);
+            viewAmizades.getItems().add(contaUsuario);
         }
     }
 

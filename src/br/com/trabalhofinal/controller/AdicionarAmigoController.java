@@ -42,20 +42,28 @@ public class AdicionarAmigoController {
     @FXML
     void adicionarAmigo(ActionEvent event) {
         PerfilUsuario perfilUsuario = viewUsuarios.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmação de amizade");
-        alert.setHeaderText("Adicionar " + perfilUsuario.getNome() + " como amigo?");
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
-            AdicionaAmigo novoAmigo = new AdicionaAmigo();
-            novoAmigo.adicionarAmigo(usuarioLogado.getId(), perfilUsuario.getId());
-            alert = new Alert(AlertType.INFORMATION);
+        if (perfilUsuario != null) {
+            Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Confirmação de amizade");
-            alert.setHeaderText("Vocês e o usuário " + perfilUsuario.getNome() + " agora são amigos!");
+            alert.setHeaderText("Adicionar " + perfilUsuario.getNome() + " como amigo?");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.get() == ButtonType.OK) {
+                AdicionaAmigo novoAmigo = new AdicionaAmigo();
+                novoAmigo.adicionarAmigo(usuarioLogado.getId(), perfilUsuario.getId());
+                alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Confirmação de amizade");
+                alert.setHeaderText("Vocês e o usuário " + perfilUsuario.getNome() + " agora são amigos!");
+                alert.show();
+                carregarLista();
+            }
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Confirmação de amizade");
+            alert.setHeaderText("É necessário selecionar um usuário!");
             alert.show();
-            carregarLista();
         }
+
     }
 
     @FXML
