@@ -14,17 +14,17 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 
-public class SeguirPerfilController {
+public class AdicionarAmigoController {
     private Usuario usuarioLogado;
 
     @FXML
-    private Button btnSeguir;
+    private Button btnAdicionar;
 
     @FXML
     private Button btnVoltar;
 
     @FXML
-    private ListView<PerfilUsuario> viewAmigos;
+    private ListView<PerfilUsuario> viewUsuarios;
 
     @FXML
     private void initialize() {
@@ -34,15 +34,15 @@ public class SeguirPerfilController {
             public void onScreenChanged(String newScreen, Usuario userData) {
                 if (newScreen.equals("add")) {
                     usuarioLogado = userData;
-                    updateList();
+                    carregarLista();
                 }
             }
         });
     }
 
     @FXML
-    void seguirUsuario(ActionEvent event) {
-        PerfilUsuario perfilUsuario = viewAmigos.getSelectionModel().getSelectedItem();
+    void adicionarAmigo(ActionEvent event) {
+        PerfilUsuario perfilUsuario = viewUsuarios.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmação de amizade");
         alert.setHeaderText("Seguir usuário " + perfilUsuario.getNome() + "?");
@@ -60,12 +60,12 @@ public class SeguirPerfilController {
         Main.changeScreen("menu", usuarioLogado);
     }
 
-    private void updateList() {
-        viewAmigos.getItems().clear();
+    private void carregarLista() {
+        viewUsuarios.getItems().clear();
         AdicionaAmigo addAmigos = new AdicionaAmigo();
         ArrayList<PerfilUsuario> contas = addAmigos.buscaPerfilUsuarioParaAdicionar(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
-            viewAmigos.getItems().add(contaUsuario);
+            viewUsuarios.getItems().add(contaUsuario);
         }
     }
 

@@ -45,6 +45,10 @@ public class AdicionaAmigo {
       pstmt.setInt(1, id_usuario_principal);
       pstmt.setInt(2, id_usuario_amigo);
       pstmt.execute();
+      pstmt = conn.prepareStatement(INSERT_AMIZADE_QUERY);
+      pstmt.setInt(1, id_usuario_amigo);
+      pstmt.setInt(2, id_usuario_principal);
+      pstmt.execute();
 
     } catch (SQLException e) {
       Conexao.printSQLException(e);

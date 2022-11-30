@@ -37,7 +37,7 @@ public class Main extends Application {
     Parent fxmlMenu = FXMLLoader.load(getClass().getResource("../view/menu.fxml"));
     menuScene = new Scene(fxmlMenu);
 
-    Parent fxmlSeguirPerfil = FXMLLoader.load(getClass().getResource("../view/seguir-perfil.fxml"));
+    Parent fxmlSeguirPerfil = FXMLLoader.load(getClass().getResource("../view/adicionar-amigo.fxml"));
     addAmigoScene = new Scene(fxmlSeguirPerfil);
 
     Parent fxmlListarSeguindo = FXMLLoader.load(getClass().getResource("../view/listar-seguindo.fxml"));
