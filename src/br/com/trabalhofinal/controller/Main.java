@@ -48,6 +48,7 @@ public class Main extends Application {
 
     primaryStage.setTitle("Login - Conecta Newton");
     primaryStage.setScene(loginScene);
+    primaryStage.setResizable(false);
     primaryStage.show();
   }
 
