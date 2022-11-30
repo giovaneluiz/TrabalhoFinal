@@ -60,7 +60,7 @@ public class AdicionarAmigoController {
         } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Confirmação de amizade");
-            alert.setHeaderText("É necessário selecionar um usuário!");
+            alert.setHeaderText("É necessário selecionar um usuário para adicionar como amigo!");
             alert.show();
         }
 

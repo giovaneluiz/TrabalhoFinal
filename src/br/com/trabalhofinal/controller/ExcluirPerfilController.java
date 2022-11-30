@@ -44,19 +44,26 @@ public class ExcluirPerfilController {
     @FXML
     void excluirUsuario(ActionEvent event) {
         PerfilUsuario perfilUsuario = viewAmizades.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Desfazer amizade");
-        alert.setHeaderText("Deseja desfazer a amizade com o usuário " + perfilUsuario.getNome() + "?");
-        Optional<ButtonType> result = alert.showAndWait();
+        if (perfilUsuario != null) {
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Desfazer amizade");
+            alert.setHeaderText("Deseja desfazer a amizade com o usuário " + perfilUsuario.getNome() + "?");
+            Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.get() == ButtonType.OK) {
-            RemoverAmigo excluirPerfil = new RemoverAmigo();
-            excluirPerfil.desfazerAmizade(usuarioLogado.getId(), perfilUsuario.getId());
-            alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Deixar de seguir usuário");
-            alert.setHeaderText("Você e o usuário " + perfilUsuario.getNome() + ", não são mais amigos!");
+            if (result.get() == ButtonType.OK) {
+                RemoverAmigo excluirPerfil = new RemoverAmigo();
+                excluirPerfil.desfazerAmizade(usuarioLogado.getId(), perfilUsuario.getId());
+                alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Deixar de seguir usuário");
+                alert.setHeaderText("Você e o usuário " + perfilUsuario.getNome() + ", não são mais amigos!");
+                alert.show();
+                carregaLista();
+            }
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Desfazer amizade");
+            alert.setHeaderText("É necessário selecionar um usuário para desfazer a amizade!");
             alert.show();
-            carregaLista();
         }
     }
 
