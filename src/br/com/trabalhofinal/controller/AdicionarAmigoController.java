@@ -1,11 +1,10 @@
 package br.com.trabalhofinal.controller;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 import br.com.trabalhofinal.model.AdicionaAmigo;
 import br.com.trabalhofinal.model.PerfilUsuario;
 import br.com.trabalhofinal.model.Usuario;
+import java.util.ArrayList;
+import java.util.Optional;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -45,13 +44,17 @@ public class AdicionarAmigoController {
         PerfilUsuario perfilUsuario = viewUsuarios.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmação de amizade");
-        alert.setHeaderText("Seguir usuário " + perfilUsuario.getNome() + "?");
+        alert.setHeaderText("Adicionar " + perfilUsuario.getNome() + " como amigo?");
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {
-            AdicionaAmigo seguirNovo = new AdicionaAmigo();
-            seguirNovo.seguirConta(usuarioLogado.getId(), perfilUsuario.getId());
-            Main.changeScreen("menu", usuarioLogado);
+            AdicionaAmigo novoAmigo = new AdicionaAmigo();
+            novoAmigo.adicionarAmigo(usuarioLogado.getId(), perfilUsuario.getId());
+            alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Confirmação de amizade");
+            alert.setHeaderText("Vocês e o usuário " + perfilUsuario.getNome() + " agora são amigos!");
+            alert.show();
+            carregarLista();
         }
     }
 

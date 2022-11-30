@@ -38,7 +38,7 @@ public class AdicionaAmigo {
     return perfilUsuarios;
   }
 
-  public void seguirConta(int id_usuario_principal, int id_usuario_amigo) {
+  public void adicionarAmigo(int id_usuario_principal, int id_usuario_amigo) {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(INSERT_AMIZADE_QUERY);
