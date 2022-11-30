@@ -3,21 +3,21 @@ package br.com.trabalhofinal.controller;
 import java.util.ArrayList;
 
 import br.com.trabalhofinal.model.PerfilUsuario;
-import br.com.trabalhofinal.model.PerfisSeguindo;
+import br.com.trabalhofinal.model.ListarAmigos;
 import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
-public class PerfisSeguindoController {
+public class ListarAmigosController {
     private Usuario usuarioLogado;
 
     @FXML
     private Button btnVoltar;
 
     @FXML
-    private ListView<PerfilUsuario> viewPerfisSeguindo;
+    private ListView<PerfilUsuario> viewAmizades;
 
     @FXML
     private void initialize() {
@@ -27,7 +27,7 @@ public class PerfisSeguindoController {
             public void onScreenChanged(String newScreen, Usuario userData) {
                 if (newScreen.equals("list")) {
                     usuarioLogado = userData;
-                    updateList();
+                    carregaLista();
                 }
             }
         });
@@ -38,12 +38,12 @@ public class PerfisSeguindoController {
         Main.changeScreen("menu", usuarioLogado);
     }
 
-    private void updateList() {
-        viewPerfisSeguindo.getItems().clear();
-        PerfisSeguindo seguindo = new PerfisSeguindo();
-        ArrayList<PerfilUsuario> contas = seguindo.buscaPerfisSeguindo(usuarioLogado.getId());
+    private void carregaLista() {
+        viewAmizades.getItems().clear();
+        ListarAmigos seguindo = new ListarAmigos();
+        ArrayList<PerfilUsuario> contas = seguindo.buscaAmizades(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
-            viewPerfisSeguindo.getItems().add(contaUsuario);
+            viewAmizades.getItems().add(contaUsuario);
         }
     }
 

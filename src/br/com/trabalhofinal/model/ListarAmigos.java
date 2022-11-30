@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PerfisSeguindo {
+public class ListarAmigos {
   private ArrayList<PerfilUsuario> perfilUsuarios = new ArrayList<PerfilUsuario>();
 
   private final static String SELECT_PERFIL_QUERY = "SELECT U.id_usuario, TRIM(U.nome) AS nome, U.email FROM usuario U"
@@ -14,7 +14,7 @@ public class PerfisSeguindo {
       + " WHERE S.id_usuario_principal = ?"
       + " ORDER BY id_usuario";
 
-  public ArrayList<PerfilUsuario> buscaPerfisSeguindo(int id_usuario_logado) {
+  public ArrayList<PerfilUsuario> buscaAmizades(int id_usuario_logado) {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(SELECT_PERFIL_QUERY);

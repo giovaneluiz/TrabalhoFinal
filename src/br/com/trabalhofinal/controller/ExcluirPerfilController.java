@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import br.com.trabalhofinal.model.ExcluirPerfilSeguindo;
 import br.com.trabalhofinal.model.PerfilUsuario;
-import br.com.trabalhofinal.model.PerfisSeguindo;
+import br.com.trabalhofinal.model.ListarAmigos;
 import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,8 +63,8 @@ public class ExcluirPerfilController {
 
     private void updateList() {
         viewPerfisSeguindo.getItems().clear();
-        PerfisSeguindo seguindo = new PerfisSeguindo();
-        ArrayList<PerfilUsuario> contas = seguindo.buscaPerfisSeguindo(usuarioLogado.getId());
+        ListarAmigos seguindo = new ListarAmigos();
+        ArrayList<PerfilUsuario> contas = seguindo.buscaAmizades(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewPerfisSeguindo.getItems().add(contaUsuario);
         }

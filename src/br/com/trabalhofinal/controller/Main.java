@@ -40,7 +40,7 @@ public class Main extends Application {
     Parent fxmlSeguirPerfil = FXMLLoader.load(getClass().getResource("../view/adicionar-amigo.fxml"));
     addAmigoScene = new Scene(fxmlSeguirPerfil);
 
-    Parent fxmlListarSeguindo = FXMLLoader.load(getClass().getResource("../view/listar-seguindo.fxml"));
+    Parent fxmlListarSeguindo = FXMLLoader.load(getClass().getResource("../view/listar-amigos.fxml"));
     listSeguindoScene = new Scene(fxmlListarSeguindo);
 
     Parent fxmlExcluirSeguindo = FXMLLoader.load(getClass().getResource("../view/excluir-perfil.fxml"));
