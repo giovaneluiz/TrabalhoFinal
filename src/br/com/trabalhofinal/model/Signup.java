@@ -11,7 +11,8 @@ public class Signup extends Usuario {
     super(nome, email, senha);
   }
 
-  private final static String SIGNUP_QUERY = "SELECT email FROM usuario WHERE email = ?";
+  private final static String CONSULTA_EMAIL_EM_USO_QUERY = "SELECT email FROM usuario WHERE email = ?";
+  private final static String INSERT_USUARIO_QUERY = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)";
 
   public boolean verificaSenha(String confirmaSenha) {
     if (getSenha().equals(confirmaSenha)) {
@@ -26,7 +27,7 @@ public class Signup extends Usuario {
 
     try {
       Connection conn = Conexao.connect();
-      PreparedStatement pstmt = conn.prepareStatement(SIGNUP_QUERY);
+      PreparedStatement pstmt = conn.prepareStatement(CONSULTA_EMAIL_EM_USO_QUERY);
       pstmt.setString(1, getEmail());
       ResultSet rs = pstmt.executeQuery();
       if (rs.next()) {
@@ -43,7 +44,7 @@ public class Signup extends Usuario {
   public void insereUsuario() throws SQLException {
     try {
       Connection conn = Conexao.connect();
-      PreparedStatement pstmt = conn.prepareStatement("INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)");
+      PreparedStatement pstmt = conn.prepareStatement(INSERT_USUARIO_QUERY);
       pstmt.setString(1, getNome());
       pstmt.setString(2, getEmail());
       pstmt.setString(3, getSenha());
