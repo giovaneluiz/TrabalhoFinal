@@ -10,8 +10,7 @@ public class ListarAmigos {
   private ArrayList<PerfilUsuario> perfilUsuarios = new ArrayList<PerfilUsuario>();
 
   private final static String SELECT_PERFIL_QUERY = "SELECT U.id_usuario, TRIM(U.nome) AS nome, U.email FROM usuario U"
-      + " INNER JOIN amizade S ON U.id_usuario = S.id_usuario_amigo"
-      + " WHERE S.id_usuario_principal = ?"
+      + " WHERE id_usuario IN (SELECT id_usuario_amigo FROM amizade WHERE id_usuario_principal = ?)"
       + " ORDER BY id_usuario";
 
   public ArrayList<PerfilUsuario> buscaAmizades(int id_usuario_logado) {
