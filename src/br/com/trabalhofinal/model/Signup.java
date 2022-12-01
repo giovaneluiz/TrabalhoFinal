@@ -11,6 +11,8 @@ public class Signup extends Usuario {
     super(nome, email, senha);
   }
 
+  private final static String SIGNUP_QUERY = "SELECT email FROM usuario WHERE email = ?";
+
   public boolean verificaSenha(String confirmaSenha) {
     if (getSenha().equals(confirmaSenha)) {
       return true;
@@ -24,7 +26,7 @@ public class Signup extends Usuario {
 
     try {
       Connection conn = Conexao.connect();
-      PreparedStatement pstmt = conn.prepareStatement("SELECT email FROM usuario WHERE email = ?");
+      PreparedStatement pstmt = conn.prepareStatement(SIGNUP_QUERY);
       pstmt.setString(1, getEmail());
       ResultSet rs = pstmt.executeQuery();
       if (rs.next()) {

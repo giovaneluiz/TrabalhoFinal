@@ -41,7 +41,7 @@ public class ListarAmigosController {
     private void carregaLista() {
         viewAmizades.getItems().clear();
         ListarAmigos seguindo = new ListarAmigos();
-        ArrayList<PerfilUsuario> contas = seguindo.buscaAmizades(usuarioLogado.getId());
+        ArrayList<PerfilUsuario> contas = seguindo.buscaAmigos(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewAmizades.getItems().add(contaUsuario);
         }

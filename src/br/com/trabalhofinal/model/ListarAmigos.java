@@ -13,7 +13,7 @@ public class ListarAmigos {
       + " WHERE id_usuario IN (SELECT id_usuario_amigo FROM amizade WHERE id_usuario_principal = ?)"
       + " ORDER BY id_usuario";
 
-  public ArrayList<PerfilUsuario> buscaAmizades(int id_usuario_logado) {
+  public ArrayList<PerfilUsuario> buscaAmigos(int id_usuario_logado) {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(SELECT_PERFIL_QUERY);
