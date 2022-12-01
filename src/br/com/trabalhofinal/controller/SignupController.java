@@ -38,7 +38,7 @@ public class SignupController {
 
             @Override
             public void onScreenChanged(String newScreen, Usuario userData) {
-                if (newScreen.equals("add")) {
+                if (newScreen.equals("signup")) {
                     txtNome.setText("");
                     txtEmail.setText("");
                     txtSenha.setText("");

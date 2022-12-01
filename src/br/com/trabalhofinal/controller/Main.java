@@ -62,7 +62,7 @@ public class Main extends Application {
       case "signup":
         stage.setTitle("Criar Conta - Conecta Newton");
         stage.setScene(signupScene);
-        notifyAllListeners("signup", userData);
+        notifyAllListeners("signup", null);
         break;
       case "menu":
         stage.setTitle("Menu Principal - Conecta Newton");
