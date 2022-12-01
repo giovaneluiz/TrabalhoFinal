@@ -51,10 +51,10 @@ public class ExcluirPerfilController {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                RemoverAmigo excluirPerfil = new RemoverAmigo();
-                excluirPerfil.desfazerAmizade(usuarioLogado.getId(), perfilUsuario.getId());
+                RemoverAmigo amigo = new RemoverAmigo();
+                amigo.desfazerAmizade(usuarioLogado.getId(), perfilUsuario.getId());
                 alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Deixar de seguir usuário");
+                alert.setTitle("Desfazer amizade");
                 alert.setHeaderText("Você e o usuário " + perfilUsuario.getNome() + ", não são mais amigos!");
                 alert.show();
                 carregaLista();
