@@ -50,7 +50,7 @@ public class AdicionarAmigoController {
 
             if (result.get() == ButtonType.OK) {
                 AdicionaAmigo novoAmigo = new AdicionaAmigo();
-                novoAmigo.adicionarAmigo(usuarioLogado.getId(), perfilUsuario.getId());
+                novoAmigo.adicionar(usuarioLogado.getId(), perfilUsuario.getId());
                 alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Confirmação de amizade");
                 alert.setHeaderText("Vocês e o usuário " + perfilUsuario.getNome() + " agora são amigos!");

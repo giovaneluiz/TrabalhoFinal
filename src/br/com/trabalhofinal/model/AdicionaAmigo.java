@@ -1,12 +1,13 @@
 package br.com.trabalhofinal.model;
 
+import br.com.trabalhofinal.model.interfaces.AdicionarAmigo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class AdicionaAmigo {
+public class AdicionaAmigo implements AdicionarAmigo {
   private ArrayList<PerfilUsuario> perfilUsuarios = new ArrayList<PerfilUsuario>();
 
   private final static String SELECT_PERFIL_QUERY = "SELECT id_usuario, TRIM(nome) AS nome, email FROM usuario"
@@ -40,7 +41,7 @@ public class AdicionaAmigo {
     return perfilUsuarios;
   }
 
-  public void adicionarAmigo(int id_usuario_principal, int id_usuario_amigo) {
+  public void adicionar(int id_usuario_principal, int id_usuario_amigo) {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(INSERT_AMIZADE_QUERY);
