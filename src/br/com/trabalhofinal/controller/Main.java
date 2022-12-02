@@ -37,14 +37,14 @@ public class Main extends Application {
     Parent fxmlMenu = FXMLLoader.load(getClass().getResource("../view/menu.fxml"));
     menuScene = new Scene(fxmlMenu);
 
-    Parent fxmlSeguirPerfil = FXMLLoader.load(getClass().getResource("../view/adicionar-amigo.fxml"));
-    addAmigoScene = new Scene(fxmlSeguirPerfil);
+    Parent fxmlAdicionarAmigo = FXMLLoader.load(getClass().getResource("../view/adicionar-amigo.fxml"));
+    addAmigoScene = new Scene(fxmlAdicionarAmigo);
 
-    Parent fxmlListarSeguindo = FXMLLoader.load(getClass().getResource("../view/listar-amigos.fxml"));
-    listSeguindoScene = new Scene(fxmlListarSeguindo);
+    Parent fxmlListarAmigos = FXMLLoader.load(getClass().getResource("../view/listar-amigos.fxml"));
+    listSeguindoScene = new Scene(fxmlListarAmigos);
 
-    Parent fxmlExcluirSeguindo = FXMLLoader.load(getClass().getResource("../view/excluir-perfil.fxml"));
-    excluirSeguindoScene = new Scene(fxmlExcluirSeguindo);
+    Parent fxmlExcluirAmigos = FXMLLoader.load(getClass().getResource("../view/excluir-amigo.fxml"));
+    excluirSeguindoScene = new Scene(fxmlExcluirAmigos);
 
     primaryStage.setTitle("Login - Conecta Newton");
     primaryStage.setScene(loginScene);

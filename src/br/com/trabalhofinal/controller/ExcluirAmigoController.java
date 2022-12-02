@@ -15,7 +15,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 
-public class ExcluirPerfilController {
+public class ExcluirAmigoController {
     private Usuario usuarioLogado;
 
     @FXML
