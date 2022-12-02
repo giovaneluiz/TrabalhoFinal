@@ -33,7 +33,7 @@ public class Signup extends Usuario {
     return emUso;
   }
 
-  public void insereUsuario() throws SQLException {
+  public void insereUsuario() {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(INSERT_USUARIO_QUERY);
@@ -46,7 +46,5 @@ public class Signup extends Usuario {
     } finally {
       Conexao.disconnect();
     }
-
   }
-
 }
