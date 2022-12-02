@@ -18,7 +18,7 @@ public class AdicionaAmigo implements AdicionarAmigo {
 
   private final static String INSERT_AMIZADE_QUERY = "INSERT INTO amizade (id_usuario_principal, id_usuario_amigo) VALUES (?, ?)";
 
-  public ArrayList<PerfilUsuario> buscaPerfilUsuarioParaAdicionar(int id_usuario_logado) {
+  public ArrayList<PerfilUsuario> buscaUsuarioParaAdicionar(int id_usuario_logado) {
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(SELECT_PERFIL_QUERY);

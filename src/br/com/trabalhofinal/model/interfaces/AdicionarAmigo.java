@@ -6,5 +6,5 @@ import java.util.ArrayList;
 public interface AdicionarAmigo {
   void adicionar(int id_usuario_principal, int id_usuario_amigo);
 
-  ArrayList<PerfilUsuario> buscaPerfilUsuarioParaAdicionar(int id_usuario_logado);
+  ArrayList<PerfilUsuario> buscaUsuarioParaAdicionar(int id_usuario_logado);
 }

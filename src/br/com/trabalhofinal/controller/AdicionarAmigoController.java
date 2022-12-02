@@ -74,7 +74,7 @@ public class AdicionarAmigoController {
     private void carregarLista() {
         viewUsuarios.getItems().clear();
         AdicionaAmigo addAmigos = new AdicionaAmigo();
-        ArrayList<PerfilUsuario> contas = addAmigos.buscaPerfilUsuarioParaAdicionar(usuarioLogado.getId());
+        ArrayList<PerfilUsuario> contas = addAmigos.buscaUsuarioParaAdicionar(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewUsuarios.getItems().add(contaUsuario);
         }

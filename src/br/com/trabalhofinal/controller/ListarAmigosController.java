@@ -2,8 +2,8 @@ package br.com.trabalhofinal.controller;
 
 import java.util.ArrayList;
 
-import br.com.trabalhofinal.model.PerfilUsuario;
 import br.com.trabalhofinal.model.ListaAmigos;
+import br.com.trabalhofinal.model.PerfilUsuario;
 import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,8 +40,8 @@ public class ListarAmigosController {
 
     private void carregaLista() {
         viewAmizades.getItems().clear();
-        ListaAmigos seguindo = new ListaAmigos();
-        ArrayList<PerfilUsuario> contas = seguindo.busca(usuarioLogado.getId());
+        ListaAmigos amigos = new ListaAmigos();
+        ArrayList<PerfilUsuario> contas = amigos.busca(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewAmizades.getItems().add(contaUsuario);
         }
