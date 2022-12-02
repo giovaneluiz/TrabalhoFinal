@@ -75,7 +75,7 @@ public class ExcluirAmigoController {
     private void carregaLista() {
         viewAmizades.getItems().clear();
         ListaAmigos seguindo = new ListaAmigos();
-        ArrayList<PerfilUsuario> contas = seguindo.buscaAmigos(usuarioLogado.getId());
+        ArrayList<PerfilUsuario> contas = seguindo.busca(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewAmizades.getItems().add(contaUsuario);
         }

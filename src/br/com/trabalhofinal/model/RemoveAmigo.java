@@ -1,10 +1,11 @@
 package br.com.trabalhofinal.model;
 
+import br.com.trabalhofinal.model.interfaces.RemoverAmigo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class RemoveAmigo {
+public class RemoveAmigo implements RemoverAmigo {
   private final static String DELETE_SEGUIDOR_QUERY = "DELETE FROM amizade WHERE id_usuario_principal = ? AND id_usuario_amigo = ?";
 
   public void desfazerAmizade(int id_usuario_principal, int id_usuario_amigo) {
