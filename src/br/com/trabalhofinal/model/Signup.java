@@ -13,21 +13,13 @@ public class Signup extends Usuario {
 
   private final static String SIGNUP_QUERY = "SELECT email FROM usuario WHERE email = ?";
 
-  public boolean verificaSenha(String confirmaSenha) {
-    if (getSenha().equals(confirmaSenha)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public boolean emailEmUso() {
+  public static boolean emailEmUso(String email) {
     boolean emUso = false;
 
     try {
       Connection conn = Conexao.connect();
       PreparedStatement pstmt = conn.prepareStatement(SIGNUP_QUERY);
-      pstmt.setString(1, getEmail());
+      pstmt.setString(1, email);
       ResultSet rs = pstmt.executeQuery();
       if (rs.next()) {
         emUso = true;

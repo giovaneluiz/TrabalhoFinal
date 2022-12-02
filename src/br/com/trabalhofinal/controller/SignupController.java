@@ -60,39 +60,30 @@ public class SignupController {
             Alert alert = new Alert(AlertType.WARNING);
             alert.setTitle("Error!");
             alert.setHeaderText("Preencha todos os dados antes de prosseguir!");
+            alert.show();
+        } else if (!this.txtSenha.getText().equals(this.txtConfirmaSenha.getText())) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Error!");
+            alert.setHeaderText("As senhas digitadas não conferem!");
             alert.showAndWait();
+            this.txtSenha.setText("");
+            this.txtConfirmaSenha.setText("");
+        } else if (Signup.emailEmUso(txtEmail.getText())) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Email em uso!");
+            alert.setHeaderText("Email já cadastrado, efetue o Login!!");
+            alert.showAndWait();
+            Main.changeScreen("login", null);
         } else {
-            Signup novoUsuario = new Signup(this.txtNome.getText(), this.txtEmail.getText(), this.txtSenha.getText());
-
-            boolean confereSenha = novoUsuario.verificaSenha(this.txtConfirmaSenha.getText());
-            boolean emailEmUso = novoUsuario.emailEmUso();
-
-            if (emailEmUso) {
-                Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Email em uso!");
-                alert.setHeaderText("Email já cadastrado, efetue o Login!!");
-                alert.showAndWait();
-                Main.changeScreen("login", null);
-            } else {
-                if (!confereSenha) {
-                    Alert alert = new Alert(AlertType.WARNING);
-                    alert.setTitle("Error!");
-                    alert.setHeaderText("As senhas digitadas não conferem!");
-                    alert.showAndWait();
-                    this.txtSenha.setText("");
-                    this.txtConfirmaSenha.setText("");
-                } else {
-                    novoUsuario.insereUsuario();
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Error!");
-                    alert.setHeaderText("Usuário cadastrado com sucesso!");
-                    alert.setContentText("Agora é só fazer o Login e interagir com vários usuários!");
-                    alert.showAndWait();
-                    Main.changeScreen("login", null);
-                }
-            }
+            Signup novoUsuario = new Signup(this.txtNome.getText(), this.txtEmail.getText(),
+                    this.txtSenha.getText());
+            novoUsuario.insereUsuario();
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Error!");
+            alert.setHeaderText("Usuário cadastrado com sucesso!");
+            alert.setContentText("Agora é só fazer o Login e interagir com vários usuários!");
+            alert.showAndWait();
+            Main.changeScreen("login", null);
         }
-
     }
-
 }
