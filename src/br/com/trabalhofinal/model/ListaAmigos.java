@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ListarAmigos {
+public class ListaAmigos {
   private ArrayList<PerfilUsuario> perfilUsuarios = new ArrayList<PerfilUsuario>();
 
   private final static String SELECT_PERFIL_QUERY = "SELECT U.id_usuario, TRIM(U.nome) AS nome, U.email FROM usuario U"

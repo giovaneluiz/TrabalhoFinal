@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class RemoverAmigo {
+public class RemoveAmigo {
   private final static String DELETE_SEGUIDOR_QUERY = "DELETE FROM amizade WHERE id_usuario_principal = ? AND id_usuario_amigo = ?";
 
   public void desfazerAmizade(int id_usuario_principal, int id_usuario_amigo) {

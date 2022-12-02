@@ -3,9 +3,9 @@ package br.com.trabalhofinal.controller;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import br.com.trabalhofinal.model.RemoverAmigo;
+import br.com.trabalhofinal.model.RemoveAmigo;
 import br.com.trabalhofinal.model.PerfilUsuario;
-import br.com.trabalhofinal.model.ListarAmigos;
+import br.com.trabalhofinal.model.ListaAmigos;
 import br.com.trabalhofinal.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,7 +51,7 @@ public class ExcluirAmigoController {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                RemoverAmigo amigo = new RemoverAmigo();
+                RemoveAmigo amigo = new RemoveAmigo();
                 amigo.desfazerAmizade(usuarioLogado.getId(), perfilUsuario.getId());
                 alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Desfazer amizade");
@@ -74,7 +74,7 @@ public class ExcluirAmigoController {
 
     private void carregaLista() {
         viewAmizades.getItems().clear();
-        ListarAmigos seguindo = new ListarAmigos();
+        ListaAmigos seguindo = new ListaAmigos();
         ArrayList<PerfilUsuario> contas = seguindo.buscaAmigos(usuarioLogado.getId());
         for (PerfilUsuario contaUsuario : contas) {
             viewAmizades.getItems().add(contaUsuario);
